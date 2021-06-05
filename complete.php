@@ -1,4 +1,5 @@
 <?php
+
 require_once 'config.php';
 
 $path = $_SERVER['PATH_INFO'];
@@ -13,7 +14,7 @@ $charge_id = $search['data'][0]['id'];
 
 $charge = OmiseCharge::retrieve($charge_id);
 
-if ( $charge['authorized'] == false || $charge['paid'] == false) {
+if ($charge['authorized'] == false || $charge['paid'] == false) {
 	echo $charge['id'] . ": failed";
 } else {
 	echo $charge['id'] . ": successful";

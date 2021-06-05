@@ -19,7 +19,7 @@ $metadata = array(
 $attrs = array(
 	'amount'		=> 10000,
 	'currency'		=> 'thb',
-	'return_uri'	=> 'https://merchant-site.com/complete.php/orderid=' . $order_id,
+	'return_uri'	=> $_ENV['RETURN_URI'] . '?order_id=' . $order_id,
 	'description'	=> 'Test payment. Order ID: ' . $order_id,
 	'metadata'		=> $metadata
 );
