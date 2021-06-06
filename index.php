@@ -1,12 +1,3 @@
-<?php
-
-require __DIR__ . '/vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-?>
-
 <!DOCTYPE HTML>
 <html>
   <head> 
@@ -24,6 +15,8 @@ $dotenv->load();
       </script>
 
       <script>
+        <?php require_once 'config.php'; ?>
+
         OmiseCard.configure({
           publicKey: "<?php echo $_ENV['OMISE_PUBLIC_KEY']; ?>"
         });
