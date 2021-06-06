@@ -12,13 +12,11 @@ Please note that asdf PHP requires [asdf](https://asdf-vm.com/#/core-manage-asdf
 
 ### Install dependencies
 
-Run `composer install` to install dependencies described in `composer.json`.
-
-A new vendor folder containing `omise/omise-php` library will be created.
+Run `composer install` to install all dependencies.
 
 ## Configuration
 
-### .env
+### .env-example
 
 Rename `.env-example` to `.env` and set your Omise public and secret keys.
 
