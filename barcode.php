@@ -5,10 +5,10 @@
   </head>
   <body>
     <p>
-      <img src='<?php echo $charge['source']['references']['barcode']; ?>'>
+      <img src="<?php echo $charge['source']['references']['barcode']; ?>">
     </p>
     <p>
-      Go to <a target = '_blank' href='<?php echo 'https://dashboard.omise.co/test/charges/' . $charge['id']; ?>'>dashboard</a> and mark as paid/failed.
+      Go to <a target = "_blank" href="<?php echo 'https://dashboard.omise.co/test/charges/' . $charge['id']; ?>">dashboard</a> and mark as paid/failed.
     </p>
   </body>
 </html>
