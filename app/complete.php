@@ -1,33 +1,14 @@
 <?php
 
-$metadata = array(
-  'order_id'  => $order_id
-);
+include_once __dir__ . '/../app/charge.php';
 
-$search = OmiseCharge::search($metadata);
+$order = new Charge();
+$order->get($order_id);
 
-$charge_id = $search['data'][0]['id'];
+$charge_id = $order->charge_id();
 
 $charge = OmiseCharge::retrieve($charge_id);
 
+$order->update_status($charge['id'], $charge['status']);
+
 header('Location: /../' . $charge['id'] . '/status');
-
-$input = fopen('status.csv', 'r');
-$output = fopen('status-temp.csv', 'w');
-
-while (($row = fgetcsv($input)) !== FALSE) {
-  if ($row[1] == $charge['id']) {
-    $row[4] = $charge['status'];
-  }
-  fputcsv($output, $row);
-}
-
-$stat = fstat($output);
-ftruncate($output, $stat['size']-1);
-
-fclose($input);
-fclose($output);
-
-unlink('status.csv');
-
-rename('status-temp.csv', 'status.csv');
